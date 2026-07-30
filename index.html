@@ -26,7 +26,7 @@
     </script>
     <noscript>
       <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=TU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
+           src="https://www.facebook.com/tr?id=1021026427507940&ev=PageView&noscript=1"/>
     </noscript>
 
     <style>
@@ -38,6 +38,8 @@
             --gray-text: #64748b;
             --border: #e2e8f0;
             --radius: 12px;
+            --facebook: #1877f2;
+            --instagram: #e1306c;
         }
 
         * {
@@ -75,6 +77,12 @@
             color: var(--primary);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .cart-icon {
             background: #f1f5f9;
             padding: 0.5rem 1rem;
@@ -82,6 +90,33 @@
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
+        }
+
+        /* Botones de Redes Sociales */
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.5rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-social:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-facebook {
+            background-color: var(--facebook);
+        }
+
+        .btn-instagram {
+            background-color: var(--instagram);
         }
 
         /* Hero Banner */
@@ -253,6 +288,15 @@
             padding: 2rem;
             color: var(--gray-text);
             margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
@@ -261,7 +305,15 @@
     <!-- Navegación -->
     <nav>
         <div class="logo">NEXUS<span>.mobile</span></div>
-        <div class="cart-icon">🛒 Carrito (0)</div>
+        <div class="nav-right">
+            <a href="https://www.facebook.com/people/Nexus-Mobile/100092241530386/" target="_blank" class="btn-social btn-facebook">
+                Facebook
+            </a>
+            <a href="https://www.instagram.com/nexu.smob/" target="_blank" class="btn-social btn-instagram">
+                Instagram
+            </a>
+            <div class="cart-icon">🛒 Carrito (0)</div>
+        </div>
     </nav>
 
     <!-- Header / Hero Banner -->
@@ -337,6 +389,14 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/people/Nexus-Mobile/100092241530386/" target="_blank" class="btn-social btn-facebook">
+                Facebook
+            </a>
+            <a href="https://www.instagram.com/nexu.smob/" target="_blank" class="btn-social btn-instagram">
+                Instagram
+            </a>
+        </div>
         <p>&copy; 2026 NEXUS Mobile Inc. Todos los derechos reservados.</p>
     </footer>
 
