@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS Mobile | Tienda Oficial de Smartphones</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Analytics Engine -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', 'TU_PIXEL_ID_AQUI'); 
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=TU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+            --gray-text: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark);
+        }
+
+        /* Navbar */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .cart-icon {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Catalog Grid */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Product Cards */
+        .card {
+            background: #ffffff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .card-img-container {
+            height: 250px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .price-container {
+            margin-top: auto;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: var(--gray-text);
+            text-decoration: line-through;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-cart {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+
+        .btn-cart:hover {
+            background-color: #e2e8f0;
+        }
+
+        .btn-buy {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Footer */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-text);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="logo">NEXUS<span>.mobile</span></div>
+        <div class="cart-icon">🛒 Carrito (0)</div>
+    </nav>
+
+    <!-- Header / Hero Banner -->
+    <header class="hero">
+        <h1>Tecnología de Vanguardia</h1>
+        <p>Descubre nuestra nueva línea de dispositivos móviles de última generación con envíos a todo el país.</p>
+    </header>
+
+    <!-- Catálogo de Productos -->
+    <main class="container">
+        <h2 class="section-title">Smartphones Destacados</h2>
+
+        <div class="grid">
+            <!-- Producto 1 -->
+            <div class="card">
+                <span class="badge">Oferta</span>
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="Nexus Titan Pro">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Nexus Titan Pro</h3>
+                    <p class="card-description">Pantalla OLED 120Hz, Procesador Octa-Core de 3nm y triple cámara de 108MP con IA.</p>
+                    <div class="price-container">
+                        <span class="price">$899 USD</span>
+                        <span class="old-price">$999 USD</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-cart" onclick="agregarAlCarrito('Nexus Titan Pro', 899)">Añadir</button>
+                        <button class="btn btn-buy" onclick="procesarCompra('Nexus Titan Pro', 899)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="Nexus Edge 5G">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Nexus Edge 5G</h3>
+                    <p class="card-description">Diseño ultradelgado en cristal y aluminio, carga rápida de 67W y conectividad global 5G.</p>
+                    <div class="price-container">
+                        <span class="price">$649 USD</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-cart" onclick="agregarAlCarrito('Nexus Edge 5G', 649)">Añadir</button>
+                        <button class="btn btn-buy" onclick="procesarCompra('Nexus Edge 5G', 649)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card">
+                <span class="badge">Popular</span>
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=600&q=80" alt="Nexus Lite X">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Nexus Lite X</h3>
+                    <p class="card-description">Batería de larga duración de 5000mAh, almacenamiento expandible hasta 1TB y sensor biométrico.</p>
+                    <div class="price-container">
+                        <span class="price">$329 USD</span>
+                        <span class="old-price">$399 USD</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-cart" onclick="agregarAlCarrito('Nexus Lite X', 329)">Añadir</button>
+                        <button class="btn btn-buy" onclick="procesarCompra('Nexus Lite X', 329)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NEXUS Mobile Inc. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Lógica de interacciones y seguimiento -->
+    <script>
+        function agregarAlCarrito(producto, precio) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: producto,
+                    value: precio,
+                    currency: 'USD'
+                });
+            }
+            alert(`🛒 ¡"${producto}" fue agregado al carrito!`);
+        }
+
+        function procesarCompra(producto, precio) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    content_name: producto,
+                    value: precio,
+                    currency: 'USD'
+                });
+            }
+            alert(`🎉 ¡Gracias por tu compra del ${producto}! Te hemos enviado un correo con el detalle del pedido.`);
+        }
+    </script>
+
+</body>
+</html>
